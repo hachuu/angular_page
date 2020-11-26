@@ -11,7 +11,7 @@ export class NavigationComponent implements OnInit {
   showMenuList = false;
 
   public openFlag = false;
-  public signIn = true; // 임시로 로그인 된 것 처럼
+  public signIn;
 
   @Input() menuList;
 
@@ -25,6 +25,7 @@ export class NavigationComponent implements OnInit {
     this.loadAPI = new Promise((resolve) => {
       this.loadScript();
     });
+    this.signIn = !!sessionStorage.getItem('token');
   }
 
   public loadScript() {
@@ -50,7 +51,9 @@ export class NavigationComponent implements OnInit {
   }
 
   logOut() {
+    sessionStorage.removeItem('token');
     this.signIn = false;
+    this.router.navigate(['/main']);
   }
 
   goGitHub() {

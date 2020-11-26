@@ -134,10 +134,10 @@ export class Menu2Component implements OnInit {
   }
 
   async getHoliday() {
-    // await this.service.getHoliday(this.currentMonth, this.currentYear).then(x => {
-    //   this.holidays = x.response.body.items.item;
-    //   console.log(x);
-    // });
+    await this.service.getHoliday(this.currentMonth, this.currentYear).then(x => {
+      this.holidays = x.response.body.items.item;
+      console.log(x);
+    });
     if (!!this.holidays) {
       if (this.holidays.length > 1) {
         this.holidays = this.holidays.map(({locdate}) => locdate.toString());

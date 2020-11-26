@@ -3,6 +3,6 @@
  구상2. 로그인 페이지 => 로그인 라우터 추가
 
 -->
-<div>
+<div *ngIf="!loginToken">
     <i class="fas fa-sign-in-alt"(click)="login()">로그인</i>
 </div>

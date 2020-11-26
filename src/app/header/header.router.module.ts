@@ -18,7 +18,7 @@ export const HeaderRoutes: Routes = [
       { path: 'menu3', component: Menu3Component },
       { path: 'menu4', component: Menu4Component },
     ],
-    // canActivate: [LoginCheckService],
+    canActivate: [LoginCheckService],
   }
 ];
 
