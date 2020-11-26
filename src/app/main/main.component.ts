@@ -25,7 +25,7 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.router.url);
+    console.log(this.router);
     console.log(airportlist.length);
   }
 
