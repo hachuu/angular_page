@@ -1,8 +1,8 @@
 # Myproject
-개발 포트폴리오
-FlexBox를 통한 UI,
-Angular 기반의 오픈 api, serverless api(back-end : java spring Boot)연동을 통해 데이터 (영화 검색, 공휴일 검색, 책 검색)을 가져온다.
-login session token 저장
+- 개발 포트폴리오
+- FlexBox를 통한 UI,
+- Angular 기반의 오픈 api, serverless api(back-end : java spring Boot)연동을 통해 데이터 (영화 검색, 공휴일 검색, 책 검색)을 가져온다.
+- login session token 저장
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.9.
 
