@@ -1,0 +1,23 @@
+<ng-container *ngIf="!loading">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="search Movie" aria-label="Recipient's username"
+            aria-describedby="basic-addon2" [(ngModel)]="inputDate">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" (click)="!!inputDate ? searchMovie() : ''">검색</button>
+        </div>
+    </div>
+
+    <div *ngIf="!!movieList && !!movieList.items">
+        <ng-container *ngFor="let movie of movieList.items">
+            <div (click)="openMovieLayer(movie)">
+                <span [innerHtml]="movie.title"></span>
+                <!-- <img src={{movie.image}}> -->
+            </div>
+        </ng-container>
+    </div>
+</ng-container>
+<app-movie-layer *ngIf="!!movieInfo"
+    [openFlag]="openFlag"
+    [movieInfo]="movieInfo"
+></app-movie-layer>
+<app-loading [loading]="loading"></app-loading>

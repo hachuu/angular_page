@@ -1,0 +1,39 @@
+<div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="search Date" aria-label="Recipient's username" aria-describedby="basic-addon2" [(ngModel)]="inputDate">
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary" type="button" (click)="!!inputDate ? changeDate() : ''">검색</button>
+    </div>
+</div>
+<div class="month">
+    <ul>
+        <li class="prev" (click)="makeCalendarData('prev')">&#10094;</li>
+        <li class="next" (click)="makeCalendarData('next')">&#10095;</li>
+        <li><span style="font-size:15px">{{currentYear}}</span><br>
+            <span style="font-size:30px">{{currentMonth}}</span>
+        </li>
+    </ul>
+</div>
+<ul class="weekdays">
+    <li style="color: red">S</li>
+    <li>M</li>
+    <li>T</li>
+    <li>W</li>
+    <li>T</li>
+    <li>F</li>
+    <li style="color: blue">S</li>
+</ul>
+<ul class="days">
+    <ng-container *ngFor="let weeks of totalCalLinesList">
+        <ng-container *ngFor="let days of weeks">
+        <li>
+            <ng-container *ngIf="currentDate === days else regularDate">
+                <span class="active">{{days}}</span>
+            </ng-container>
+            <ng-template #regularDate>
+                <span [ngClass]="getHolidayExpression(days)">{{days}}</span>
+            </ng-template>
+        </li>
+        </ng-container>
+    </ng-container>
+<!-- <li><span class="active">10</span></li> -->
+</ul>

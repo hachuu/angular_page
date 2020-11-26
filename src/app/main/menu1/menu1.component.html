@@ -1,0 +1,26 @@
+공항 리스트 가져오기
+<!-- (ngModelChange)="test = $event"  -->
+<input #inputEl (keyup)="keyUp($event);" [(ngModel)]="test" />
+<br>
+<br>
+<br>
+<div class="btn-group">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+        (click)="btnExpandedclick()" [attr.aria-expanded]="expanded">
+        공항 목록 보기
+    </button>
+    <div [ngClass]="{'dropdown-menu dropdown-menu-left': true, 'show': expanded}">
+        <ng-container *ngIf="!!filteredList && filteredList.length > 0 else emptyList">
+            <button class="dropdown-item" type="button" *ngFor="let airport of filteredList">
+                {{airport.airportCode.toUpperCase()}}
+                {{airport.airportName}}
+            </button>
+        </ng-container>
+        <ng-template #emptyList>
+            검색 결과가 없습니다.
+        </ng-template>
+    </div>
+    <div>
+        검색 결과 : {{!!filteredList && filteredList.length > 0 ? filteredList.length : '0'}}개
+    </div>
+</div>

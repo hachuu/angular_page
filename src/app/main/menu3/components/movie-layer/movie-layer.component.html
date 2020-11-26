@@ -1,0 +1,20 @@
+<div [ngClass]="{'modal': true, 'hide': !openFlag}">
+  <div class="modal-inner">
+    <div [innerText]="!!movieInfo ? replaceHtmlTag(movieInfo.title) : ''"></div>
+    <img src={{movieInfo.image}}>
+    <i class="fas fa-times-circle close" (click)="openFlag = false"></i>
+    <div>
+      감독 : {{movieInfo.director.replace('|', '')}}
+    </div>
+    <div>
+      배우 :
+      <span *ngFor="let actor of movieInfo.actor.split('|')">
+        {{actor}}
+      </span>
+    </div>
+    <div class="pageLink">
+      <div class="button" (click)="goMovieInfo(movieInfo.link)">영화 정보 더보기</div>
+    </div>
+  </div>
+  <!-- <div class="" (click)="openFlag = false">닫기</div> -->
+</div>

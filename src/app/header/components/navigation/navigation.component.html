@@ -1,0 +1,36 @@
+<nav class="navbar">
+  <div class="navbar__logo">
+    <i class="fas fa-house-user"></i>
+    <a href="/main">HachuCoding</a>
+  </div>
+  <ul [ngClass]="{'navbar__menu': true, 'active': showMenuList}">
+    <li *ngFor="let menu of menuList; let i = index;">
+      <a [attr.href]="menu.router">
+        {{menu.id}}
+      </a>
+    </li>
+  </ul>
+  <ul [ngClass]="{'navbar__icons': true, 'active': showMenuList}">
+    <ng-container *ngIf="signIn else signOut">
+      <li><i class="fas fa-sign-out-alt" (click)="logOut()"></i></li>
+    </ng-container>
+    <ng-template #signOut>
+      <li><i class="fas fa-sign-in-alt" (click)="goLoginPage()"></i></li>
+    </ng-template>
+    <li><i class="fab fa-github-square" (click)="goGitHub()"></i></li>
+    <li><i class="fas fa-envelope-open" (click)="showEmailInfo()"></i></li>
+    <!-- <li> flaticon 추가
+      <i>
+      <img class="email__icon" (click)="showEmailInfo()"
+        src="data:image/svg+xml;base64,PHN2ZyBpZD0iQ2FwYV8xIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHdpZHRoPSI1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGc+PGc+PGc+PGc+PGc+PGc+PGc+PGNpcmNsZSBjeD0iMjU2IiBjeT0iMjU2IiBmaWxsPSIjMmNjNDdmIiByPSIyNTYiLz48L2c+PC9nPjwvZz48L2c+PC9nPjwvZz48cGF0aCBkPSJtNTEyIDI1NmMwLTEwLjUwNC0uNjMzLTIwLjg2MS0xLjg2Mi0zMS4wMzNsLTc1LjEzOC03NS4xMzgtMzU4IDIyNy4yNjkgMTMwLjI3IDEzMC4yN2MxNS43NzUgMy4wNCAzMi4wNjcgNC42MzIgNDguNzMgNC42MzIgMTQxLjM4NSAwIDI1Ni0xMTQuNjE1IDI1Ni0yNTZ6IiBmaWxsPSIjMDZiMjZiIi8+PGc+PHBhdGggZD0ibTEwOC4zNDQgMTM1Ljk4N2gyOTUuNzc4bDMuOTg0IDI1Mi4yNjVoLTMwNC4yMTJsLTEzLjcxMy0yMTguOTMyeiIgZmlsbD0iI2ZmZiIvPjwvZz48Zz48cGF0aCBkPSJtNDA0LjEyMiAxMzUuOTg3aC0xNDguMTIydjI1Mi4yNjVoMTUyLjEwN2wyLjAwMS0yMTEuNjAxeiIgZmlsbD0iI2U5ZWRmNSIvPjwvZz48Zz48Zz48cGF0aCBkPSJtNDA4LjEwNiAzODguMjUydi0yMDkuODc2YzAtMS42MjctLjg4OC0zLjE1LTIuMzM3LTMuODkxLTEuNTQ1LS43OS0zLjA0NS0uNjc3LTQuNDU1LjMzOGwtMTQ1LjMxNCAxMjEuOTk2LTE0NS4zMTQtMTIxLjk5NmMtMS40MDktMS4wMTUtMi45MDktMS4xMjgtNC40NTUtLjMzOC0xLjQ0OS43NC0yLjMzNyAyLjI2My0yLjMzNyAzLjg5djIwOS44NzhjLTIwLjk4NyAwLTM4LTE3LjAxMy0zOC0zOHYtMTcxLjk1YzAtMTUuOTQ0IDguODE1LTMwLjM2NSAyMy4wMDUtMzcuNjM1IDE0LjE5MS03LjI3IDMxLjA0NC02LjAwMSA0My45ODUgMy4zMTNsMTIzLjExNiAxMDYuMDE5IDEyMy4xMTYtMTA2LjAxOWMxMy4wODgtOS40MiAzMC4xNzktMTAuNjExIDQ0LjQ2Ny0zLjA2MiAxNC4wMzIgNy40MTMgMjIuNTIzIDIyLjI4MSAyMi41MjMgMzguMTUxdjE3MS4xODNjMCAyMC45ODYtMTcuMDEzIDM3Ljk5OS0zOCAzNy45OTl6IiBmaWxsPSIjZmY1ODNlIi8+PC9nPjwvZz48Zz48Zz48cGF0aCBkPSJtNDIzLjU4NCAxNDAuOTE5Yy0xNC4yODgtNy41NDgtMzEuMzc5LTYuMzU3LTQ0LjQ2NyAzLjA2MmwtMTIzLjExNyAxMDUuOTE1djQ2LjgyMWwxNDUuMzE0LTEyMS44OTRjMS40MS0xLjAxNSAyLjkxLTEuMTI4IDQuNDU1LS4zMzggMS40NDkuNzQxIDIuMzM3IDIuMjYzIDIuMzM3IDMuODkxdjIwOS44NzZjMjAuOTg3IDAgMzgtMTcuMDEzIDM4LTM4di0xNzEuMTgyYzAtMTUuODctOC40OTEtMzAuNzM4LTIyLjUyMi0zOC4xNTF6IiBmaWxsPSIjZjkyODE0Ii8+PC9nPjwvZz48L2c+PC9zdmc+" />
+      </i>
+    </li> -->
+  </ul>
+  <a href="javascript:void(0)" class="nabvar__toggleBtn" (click)="clickToggleBtn()">
+    <i class="fas fa-bars"></i>
+  </a>
+</nav>
+
+<app-email-layer
+  [openFlag]="openFlag"
+></app-email-layer>

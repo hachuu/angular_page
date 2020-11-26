@@ -1,0 +1,28 @@
+google Api 호출 (도서 검색 test)
+<div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="search book" aria-label="" aria-describedby="basic-addon2" [(ngModel)]="inputData">
+    <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button" (click)="!!inputData ? getBook(inputData) : ''">검색</button>
+    </div>
+</div>
+<div class="result">검색 결과</div>
+<ng-container *ngIf="!!bookTest$ else beforeSearching">
+  <div>
+    <div *ngFor="let item of bookTest$ | async">
+      <div (click)="openBookLayer(item)">
+        <span>{{item.volumeInfo.title}}</span>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<ng-template #beforeSearching>
+  <ng-container *ngIf="loading === undefined">
+    검색어를 입력하세요.
+  </ng-container>
+</ng-template>
+
+<app-book-layer *ngIf="!!bookInfo"
+    [openFlag]="openFlag"
+    [bookInfo]="bookInfo"
+></app-book-layer>
+<app-loading [loading]="loading"></app-loading>

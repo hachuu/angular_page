@@ -1,0 +1,9 @@
+<div [ngClass]="{'modal': true, 'hide': !openFlag}">
+  <div class="modal-inner">
+    <div>
+      email : hachu.developer@gmail.com
+      <i class="fas fa-times-circle close" (click)="openFlag = false"></i>
+    </div>
+    <a href="mailto:hachu.developer@gmail.com">email 송신</a>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div [ngClass]="{'modal': true, 'hide': !openFlag}">
+  <div class="modal-inner">
+    <div>책제목 : {{bookInfo.volumeInfo.title}}</div>
+    <img src={{bookInfo.volumeInfo.imageLinks.thumbnail}}>
+    <i class="fas fa-times-circle close" (click)="openFlag = false"></i>
+    <div *ngIf="bookInfo.volumeInfo.publishedDate">
+      출판일 : {{bookInfo.volumeInfo.publishedDate}}
+    </div>
+    <div *ngIf="!!bookInfo.volumeInfo.pageCount">
+      페이지수 : {{bookInfo.volumeInfo.pageCount.toString()}}
+    </div>
+    <div *ngIf="!!bookInfo.volumeInfo.description">
+      요약 : {{bookInfo.volumeInfo.description}}
+    </div>
+  </div>
+  <!-- <div class="" (click)="openFlag = false">닫기</div> -->
+</div>

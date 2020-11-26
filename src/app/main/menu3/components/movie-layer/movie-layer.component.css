@@ -1,0 +1,36 @@
+.modal {
+  position: fixed;
+  display: flex;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+}
+.modal-inner {
+  width: 80%;
+  height: cal(100% - 10px);
+  background: white;
+  z-index: 999;
+}
+.hide {
+  display: none;
+}
+.right {
+  float: right;
+}
+.button {
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  margin-right:-4px;
+  color: #d49466;
+  padding: 5px;
+}
+.pageLink div:hover{
+  background-color: darkslategray;
+  border-radius: 4px;
+  color: white;
+}
