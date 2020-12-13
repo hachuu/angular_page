@@ -7,7 +7,7 @@ import { RestService } from 'app/service/rest.service';
 })
 export class Menu3Component implements OnInit {
 
-  public inputDate: string;       // 검색어
+  public inputData: string;       // 검색어
   public movieList;
   public openFlag = false;
   public movieInfo;
@@ -23,10 +23,9 @@ export class Menu3Component implements OnInit {
 
   async searchMovie() {
     this.loading = true;
-    // this.movieList = await this.service.getMovie(this.inputDate, '100');
+    this.movieList = await this.service.getMovie(this.inputData, '100');
     // .then(x => this.movieList = x);
     // console.log(this.service.getMovie(this.inputDate, '100'));
-    console.log(this.movieList);
     this.loading = false;
   }
 

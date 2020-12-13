@@ -1,0 +1,7 @@
+<div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="search Word" aria-label="input Word"
+        aria-describedby="basic-addon2" [(ngModel)]="inputData">
+    <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button" (click)="!!inputData ? searchWord() : ''">검색</button>
+    </div>
+</div>

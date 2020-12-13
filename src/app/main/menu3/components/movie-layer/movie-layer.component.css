@@ -30,6 +30,7 @@
   padding: 5px;
 }
 .pageLink div:hover{
+  cursor: pointer;
   background-color: darkslategray;
   border-radius: 4px;
   color: white;
