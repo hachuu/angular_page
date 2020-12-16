@@ -10,9 +10,10 @@ import { MovieLayerComponent } from './menu3/components/movie-layer/movie-layer.
 import { Menu4Component } from './menu4/menu4.component';
 import { BookLayerComponent } from './menu4/components/book-layer/book-layer.component';
 import { LoadingComponent } from 'app/loading/loading.component';
+import { Menu5Component } from './menu5/menu5.component';
 
 @NgModule({
-  declarations: [MainComponent, Menu1Component, Menu2Component, Menu3Component, MovieLayerComponent, Menu4Component, BookLayerComponent, LoadingComponent],
+  declarations: [MainComponent, Menu1Component, Menu2Component, Menu3Component, MovieLayerComponent, Menu4Component, BookLayerComponent, LoadingComponent, Menu5Component],
   imports: [
     CommonModule,
     FormsModule

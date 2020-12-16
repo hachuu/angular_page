@@ -14,5 +14,9 @@ export const menuList = [
     {
         id: '도서검색',
         router: '/main/menu4'
-    }
+    },
+    {
+        id: '한영변환',
+        router: '/main/menu5'
+    },
 ];

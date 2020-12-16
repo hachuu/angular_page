@@ -3,7 +3,7 @@
     <div [innerText]="!!movieInfo ? replaceHtmlTag(movieInfo.title) : ''"></div>
     <img src={{movieInfo.image}}>
     <i class="fas fa-times-circle close" (click)="openFlag = false"></i>
-    <div>
+    <div *ngIf="!!movieInfo.director.replace('|', '')">
       감독 : {{movieInfo.director.replace('|', '')}}
     </div>
     <div>
