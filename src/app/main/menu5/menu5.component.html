@@ -10,3 +10,15 @@
         {{translateData.message.result.translatedText}}
     </div>
 </div>
+<div class="remember result">
+    <div *ngIf="!!loadedData">
+        <ng-container *ngFor="let data of loadedData; let idx = index;">
+            <div>
+                {{idx+1}} 검색어 : {{data.input}}
+            </div>
+            <div>
+                결과 : {{data.result}}
+            </div>
+        </ng-container>
+    </div>
+</div>
