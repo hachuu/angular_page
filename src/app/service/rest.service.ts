@@ -165,7 +165,27 @@ export class RestService {
   }
 
   // 번역
-  async getTranslateWord(text: string) {
+  async getDetectLang(text: string) {
+    let res;
+    console.log(text);
+    let params = new HttpParams();
+    params = params.set('query', 'end');
+    await this.http.get('http://localhost:8080/detectLang',
+    {
+      params: {
+        text,
+      },
+    })
+    .toPromise()
+      .then(response => {
+        console.log(response);
+        res = response;
+      })
+      .catch(console.log);
+    return res;
+  }
+
+  async getTranslateWord(text: string, lang: string) {
     let res;
     console.log(text);
     let params = new HttpParams();
@@ -174,6 +194,7 @@ export class RestService {
     {
       params: {
         text,
+        lang
       },
     })
     .toPromise()

@@ -5,3 +5,8 @@
         <button class="btn btn-outline-secondary" type="button" (click)="!!inputData ? searchWord() : ''">검색</button>
     </div>
 </div>
+<div class="translate result">
+    <div *ngIf="!!translateData && translateData.message">
+        {{translateData.message.result.translatedText}}
+    </div>
+</div>

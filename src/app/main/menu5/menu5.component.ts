@@ -10,6 +10,7 @@ export class Menu5Component implements OnInit {
 
   public inputData: string;       // 검색어
   public translateData;
+  public inputLanguage;
 
   constructor(
     private service: RestService,
@@ -19,8 +20,8 @@ export class Menu5Component implements OnInit {
   }
 
   async searchWord() {
-    this.translateData = await this.service.getTranslateWord(this.inputData);
-
+    this.inputLanguage = await this.service.getDetectLang(this.inputData);
+    this.translateData = await this.service.getTranslateWord(this.inputData, this.inputLanguage.langCode)
   }
 
 }
