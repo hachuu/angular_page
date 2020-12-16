@@ -23,7 +23,7 @@ export class Menu3Component implements OnInit {
 
   async searchMovie() {
     this.loading = true;
-    // this.movieList = await this.service.getMovie(this.inputDate, '100');
+    this.movieList = await this.service.getMovie(this.inputDate, '100');
     // .then(x => this.movieList = x);
     // console.log(this.service.getMovie(this.inputDate, '100'));
     console.log(this.movieList);
