@@ -12,6 +12,7 @@ export class Menu5Component implements OnInit {
   public translateData;
   public inputLanguage;
   public loadedData;
+  public loading = false;
 
   constructor(
     private service: RestService,
@@ -26,10 +27,18 @@ export class Menu5Component implements OnInit {
   }
 
   async searchWord() {
-    this.inputLanguage = await this.service.getDetectLang(this.inputData);
-    this.translateData = await this.service.getTranslateWord(this.inputData, this.inputLanguage.langCode);
+    try {
+      this.loading = true;
+      this.inputLanguage = await this.service.getDetectLang(this.inputData);
+      this.translateData = await this.service.getTranslateWord(this.inputData, this.inputLanguage.langCode);
+      this.loading = false;
+    } catch(err) {
+      this.loading = false;
+      console.log(err);
+    }
     if (!!this.translateData) {
       this.saveData(this.inputData, this.translateData.message.result.translatedText);
+      this.loadData();
     }
   }
 
@@ -45,5 +54,10 @@ export class Menu5Component implements OnInit {
     }
     console.log(newArr);
     localStorage.setItem('saveWord', JSON.stringify(newArr));
+  }
+
+  removeData(index: number) {
+    this.loadedData.splice(index, 1);
+    localStorage.setItem('saveWord', JSON.stringify(this.loadedData));
   }
 }

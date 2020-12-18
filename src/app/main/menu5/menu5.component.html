@@ -11,14 +11,19 @@
     </div>
 </div>
 <div class="remember result">
-    <div *ngIf="!!loadedData">
+    <div class="remember__title">검색 History</div>
+    <div class="remember__items" *ngIf="!!loadedData">
         <ng-container *ngFor="let data of loadedData; let idx = index;">
-            <div>
-                {{idx+1}} 검색어 : {{data.input}}
-            </div>
-            <div>
-                결과 : {{data.result}}
+            <div class="remember__item">
+                <div>
+                    {{idx+1}}. 검색어 : {{data.input}} / 
+                </div>
+                <div>
+                    결과 : {{data.result}}
+                </div>
+                <div class="remember__remove" (click)="removeData(idx)">X</div>
             </div>
         </ng-container>
     </div>
 </div>
+<app-loading [loading]="loading"></app-loading>
