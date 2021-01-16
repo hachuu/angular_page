@@ -108,6 +108,7 @@ export class RestService {
         year,
         month
       },
+      responseType: 'json'
     })
     .toPromise()
     .then(response => {
@@ -128,6 +129,7 @@ export class RestService {
         keyword,
         display
       },
+      responseType: 'json'
     })
     .toPromise()
       .then(response => {
@@ -161,7 +163,7 @@ export class RestService {
 
   // CORS 테스트
   getBookList(data: string): Observable<any> {
-    return this.http.get(`${this.GOOGLE_API}?orderBy=newest&q=${data}`) .pipe(map((books: any) => books.items || []));
+    return this.http.get(`${this.GOOGLE_API}?orderBy=newest&q=${data}`, {responseType: 'json'}) .pipe(map((books: any) => books.items || []));
   }
 
   // 번역
@@ -175,6 +177,7 @@ export class RestService {
       params: {
         text,
       },
+      responseType: 'json'
     })
     .toPromise()
       .then(response => {
@@ -196,6 +199,7 @@ export class RestService {
         text,
         lang
       },
+      responseType: 'json'
     })
     .toPromise()
       .then(response => {

@@ -1,3 +1,8 @@
 .result {
   font-size: 30px;
 }
+.bookItem:hover {
+  background-color: #d49466;
+  border-radius: 4px;
+  cursor: pointer;
+}

@@ -1,0 +1,5 @@
+.movieItem:hover {
+    background-color: #d49466;
+    border-radius: 4px;
+    cursor: pointer;
+  }

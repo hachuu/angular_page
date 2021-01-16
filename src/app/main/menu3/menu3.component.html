@@ -10,7 +10,7 @@
     <div *ngIf="!!movieList && !!movieList.items">
         <ng-container *ngFor="let movie of movieList.items">
             <div (click)="openMovieLayer(movie)">
-                <span [innerHtml]="movie.title"></span>
+                <span class="movieItem" [innerHtml]="movie.title"></span>
                 <!-- <img src={{movie.image}}> -->
             </div>
         </ng-container>

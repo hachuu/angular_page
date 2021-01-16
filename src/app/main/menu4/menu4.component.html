@@ -10,7 +10,7 @@ google Api 호출 (도서 검색 test)
   <div>
     <div *ngFor="let item of bookTest$ | async">
       <div (click)="openBookLayer(item)">
-        <span>{{item.volumeInfo.title}}</span>
+        <span class="bookItem">{{item.volumeInfo.title}}</span>
       </div>
     </div>
   </div>

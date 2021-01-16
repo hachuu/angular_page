@@ -1,34 +1,31 @@
 .navbar {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
   background-color: darkslategray;
-  padding: 8px 12px;
+  display: flex;
   font-family: 'Secular One';
+  justify-content: space-between;
+  padding: 8px 12px;
   position: sticky;
   top: 0;
   z-index: 999;
 }
 a {
-  text-decoration: none;
   color: white;
+  text-decoration: none;
 }
 .navbar__logo {
-  font-size: 24px;
   color: white;
+  font-size: 24px;
 }
-
 .navbar__logo i {
   color: #d49466;
 }
-
 .navbar__menu {
   display: flex;
+  font-size: 20px;
   list-style: none;
   padding-left: 0;
-  font-size: 20px;
 }
-
 .navbar__menu li:hover {
   background-color: #d49466;
   border-radius: 4px;
