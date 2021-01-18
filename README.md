@@ -9,6 +9,7 @@
   2. http get에 responseType으로 추가하기(Angular essential 429p)
   3. 자동완성 formControl로 제어하기 (Angular essential 417p)
   4. mac os Setting
+  5. Angular unit test (.spec.ts)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.9.
 
