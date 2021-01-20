@@ -9,9 +9,13 @@ export class MovieLayerComponent implements OnInit {
 
   @Input() openFlag: boolean;
   @Input() movieInfo;
-  constructor() { }
 
+  actors: string;
+  constructor() {
+  }
+  
   ngOnInit(): void {
+    this.actors = this.movieInfo.actor.split('|').join(',').slice(0, -1);
   }
 
   replaceHtmlTag(text: string) {

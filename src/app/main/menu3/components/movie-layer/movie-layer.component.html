@@ -1,4 +1,33 @@
-<div [ngClass]="{'modal': true, 'hide': !openFlag}">
+<div [ngClass]="{'modal': true, 'hide': !openFlag}" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" [innerText]="!!movieInfo ? replaceHtmlTag(movieInfo.title) : ''"></h5>
+        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button> -->
+        <i class="fas fa-times-circle close" (click)="openFlag = false"></i>
+      </div>
+      <div class="modal-body">
+        <img src={{movieInfo.image}}>
+        <div *ngIf="!!movieInfo.director.replace('|', '')">
+          감독 : {{movieInfo.director.split('|')[0]}}
+        </div>
+        <div>
+          배우 : {{actors}}
+          <!-- <span *ngFor="let actor of movieInfo.actor.split('|')">
+            {{actor}}
+          </span> -->
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="goMovieInfo(movieInfo.link)">영화 정보 더보기</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="openFlag = false">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div [ngClass]="{'modal': true, 'hide': !openFlag}">
   <div class="modal-inner">
     <div [innerText]="!!movieInfo ? replaceHtmlTag(movieInfo.title) : ''"></div>
     <img src={{movieInfo.image}}>
@@ -16,5 +45,4 @@
       <div class="button" (click)="goMovieInfo(movieInfo.link)">영화 정보 더보기</div>
     </div>
   </div>
-  <!-- <div class="" (click)="openFlag = false">닫기</div> -->
-</div>
+</div> -->
