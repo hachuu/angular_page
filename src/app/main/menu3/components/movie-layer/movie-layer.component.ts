@@ -15,7 +15,7 @@ export class MovieLayerComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    this.actors = this.movieInfo.actor.split('|').join(',').slice(0, -1);
+    this.actors = this.movieInfo?.actor.split('|').join(',').slice(0, -1);
   }
 
   replaceHtmlTag(text: string) {
