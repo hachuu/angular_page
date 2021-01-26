@@ -5,6 +5,7 @@ import { Menu2Component } from 'app/main/menu2/menu2.component';
 import { Menu3Component } from 'app/main/menu3/menu3.component';
 import { Menu4Component } from 'app/main/menu4/menu4.component';
 import { Menu5Component } from 'app/main/menu5/menu5.component';
+import { Menu6Component } from 'app/main/menu6/menu6.component';
 import { LoginCheckService } from 'app/service/login.service';
 import { HeaderComponent } from '../header/header.component';
 
@@ -19,6 +20,7 @@ export const HeaderRoutes: Routes = [
       { path: 'menu3', component: Menu3Component },
       { path: 'menu4', component: Menu4Component },
       { path: 'menu5', component: Menu5Component },
+      { path: 'menu6', component: Menu6Component },
     ],
     canActivate: [LoginCheckService],
   }

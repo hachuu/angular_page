@@ -19,4 +19,8 @@ export const menuList = [
         id: '한영변환',
         router: '/main/menu5'
     },
+    {
+        id: 'ag-grid',
+        router: 'main/menu6'
+    }
 ];
