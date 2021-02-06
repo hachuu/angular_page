@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ICellRendererAngularComp } from 'ag-grid-angular';
 import { ICellRendererParams, IAfterGuiAttachedParams } from 'ag-grid-community';
+import { decamelize } from 'object-key-converter';
 
 @Component({
   selector: 'app-menu6',
@@ -35,5 +36,6 @@ export class Menu6Component implements ICellRendererAngularComp {
 
   ngOnInit(): void {
     
+    console.log(decamelize(this.columnDefs));
   }
 }
