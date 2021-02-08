@@ -14,6 +14,7 @@ import { Menu6Component } from './menu6/menu6.component';
 import { Menu5Component } from './menu5/menu5.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { AgGridModule } from 'ag-grid-angular';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AgGridModule } from 'ag-grid-angular';
     CommonModule,
     FormsModule,
     BrowserModule,
-    AgGridModule.withComponents([Menu6Component])
+    AgGridModule.withComponents([Menu6Component]),
+    ScrollingModule
   ],
   providers: [
     RestService

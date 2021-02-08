@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/co
 import { RestService } from 'app/service/rest.service';
 import { airportlist } from '../../../data/airportDummy';
 import { airportFilter, convertSearchText, createEmptySearchText, SearchText } from './airport-filter';
+import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 
 @Component({
   selector: 'app-menu1',
@@ -14,6 +15,7 @@ export class Menu1Component implements OnInit, OnDestroy {
   public test;
   public filteredList;
   public expanded = false;
+  public height = window.innerHeight - 118 + 'px';
 
   searchText: SearchText = createEmptySearchText();
 
