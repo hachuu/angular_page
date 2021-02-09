@@ -11,6 +11,7 @@ import { FooterModule } from './footer/footer.module';
 import { HeaderModule } from './header/header.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { LoginModule } from './login/login.module';
+import { PaginationService } from './service/pagination.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,10 @@ import { LoginModule } from './login/login.module';
     LoginModule,
     FlexLayoutModule
   ],
-  providers: [RestService],
+  providers: [
+    RestService,
+    PaginationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

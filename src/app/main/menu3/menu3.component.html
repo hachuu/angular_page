@@ -8,13 +8,18 @@
     </div>
 
     <div *ngIf="!!movieList && !!movieList.items">
-        <ng-container *ngFor="let movie of movieList.items">
+        <ng-container *ngFor="let movie of pagedItems">
             <div (click)="openMovieLayer(movie)">
                 <span class="movieItem" [innerHtml]="movie.title"></span>
                 <!-- <img src={{movie.image}}> -->
             </div>
         </ng-container>
     </div>
+    <ul *ngIf="pagination.pages && pagination.pages.length" class="pagination-list">
+        <li *ngFor="let page of pagination.pages">
+          <a class="pagination-link" [class.is-current]="pagination.currentPage === page" aria-label="Goto page 1" (click)="setPage(page)">{{ page }}</a>
+        </li>
+    </ul>
 </ng-container>
 <app-movie-layer *ngIf="!!movieInfo"
     [openFlag]="openFlag"
