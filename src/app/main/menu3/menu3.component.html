@@ -3,7 +3,8 @@
         <input type="text" class="form-control" placeholder="search Movie" aria-label="input movie word"
             aria-describedby="basic-addon2" [(ngModel)]="inputData" (keydown.enter)="!!inputData ? searchMovie() : ''">
         <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button" (click)="!!inputData ? searchMovie() : ''">검색</button>
+            <button class="btn btn-outline-secondary" type="button"
+                (click)="!!inputData ? searchMovie() : ''">검색</button>
         </div>
     </div>
 
@@ -15,14 +16,17 @@
             </div>
         </ng-container>
     </div>
-    <ul *ngIf="pagination.pages && pagination.pages.length" class="pagination-list">
-        <li *ngFor="let page of pagination.pages">
-          <a class="pagination-link" [class.is-current]="pagination.currentPage === page" aria-label="Goto page 1" (click)="setPage(page)">{{ page }}</a>
-        </li>
-    </ul>
+    <nav aria-label="Page navigation example">
+        <ul *ngIf="pagination.pages && pagination.pages.length" class="pagination">
+            <li class="page-item" (click)="setPage(1)"><a class="page-link" aria-label="Goto page 1">First</a></li>
+            <li *ngFor="let page of pagination.pages" [class.is-current]="pagination.currentPage === page" class="page-item" (click)="setPage(page)">
+                <!-- <a class="pagination-link" [class.is-current]="pagination.currentPage === page" aria-label="Goto page 1"
+                    (click)="setPage(page)">{{ page }}</a> -->
+                <a class="page-link" >{{ page }}</a>
+            </li>
+            <li class="page-item" (click)="setPage(pagination.pages.length)"><a class="page-link" aria-label="Goto last page">Last</a></li>
+        </ul>
+    </nav>
 </ng-container>
-<app-movie-layer *ngIf="!!movieInfo"
-    [openFlag]="openFlag"
-    [movieInfo]="movieInfo"
-></app-movie-layer>
+<app-movie-layer *ngIf="!!movieInfo" [openFlag]="openFlag" [movieInfo]="movieInfo"></app-movie-layer>
 <app-loading [loading]="loading"></app-loading>
