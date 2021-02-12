@@ -12,12 +12,12 @@
     <div [ngClass]="{'dropdown-menu dropdown-menu-left': true, 'show': expanded}">
         <ng-container *ngIf="!!filteredList && filteredList.length > 0 else emptyList">
             <!-- scroll하면서 영역 그려줌 -->
-            <cdk-virtual-scroll-viewport [style.height]="height" itemSize="10">
-                <div class="dropdown-item" type="button" *cdkVirtualFor="let airport of filteredList">
-                    {{airport.airportCode.toUpperCase()}}
-                    {{airport.airportName}}
-                </div>
-            </cdk-virtual-scroll-viewport>
+            <!-- <cdk-virtual-scroll-viewport [style.height]="height" itemSize="10"> cdkVirtualFor-->
+            <div class="dropdown-item" type="button" *ngFor="let airport of filteredList">
+                {{airport.airportCode.toUpperCase()}}
+                {{airport.airportName}}
+            </div>
+            <!-- </cdk-virtual-scroll-viewport> -->
         </ng-container>
         <ng-template #emptyList>
             검색 결과가 없습니다.

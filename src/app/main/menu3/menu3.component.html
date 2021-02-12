@@ -17,14 +17,18 @@
         </ng-container>
     </div>
     <nav aria-label="Page navigation example">
-        <ul *ngIf="pagination.pages && pagination.pages.length" class="pagination">
-            <li class="page-item" (click)="setPage(1)"><a class="page-link" aria-label="Goto page 1">First</a></li>
-            <li *ngFor="let page of pagination.pages" [class.is-current]="pagination.currentPage === page" class="page-item" (click)="setPage(page)">
-                <!-- <a class="pagination-link" [class.is-current]="pagination.currentPage === page" aria-label="Goto page 1"
-                    (click)="setPage(page)">{{ page }}</a> -->
-                <a class="page-link" >{{ page }}</a>
-            </li>
-            <li class="page-item" (click)="setPage(pagination.pages.length)"><a class="page-link" aria-label="Goto last page">Last</a></li>
+        <ul *ngIf="pagination.pages && pagination.pages.length" class="pagination justify-content-center">
+            <ng-container *ngFor="let page of pagination.pages; let first = first; let last = last;">
+                <li *ngIf="first" class="page-item" [ngClass]="{'disabled': pagination.currentPage === pagination.startPage}" (click)="setPage(1)">
+                    <a class="page-link" aria-label="Goto page 1">First</a>
+                </li>
+                <li [class.is-current]="pagination.currentPage === page" class="page-item" (click)="setPage(page)">
+                    <a class="page-link" >{{ page }}</a>
+                </li>
+                <li *ngIf="last" class="page-item" [ngClass]="{'disabled': pagination.currentPage === pagination.endPage}" (click)="setPage(pagination.pages.length)">
+                    <a class="page-link" aria-label="Goto last page">Last</a>
+                </li>
+            </ng-container>
         </ul>
     </nav>
 </ng-container>
